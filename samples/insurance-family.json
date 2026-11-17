@@ -1,0 +1,464 @@
+{
+  "format": "process-family-studio",
+  "version": 2,
+  "family": {
+    "id": "81c5eb0b75c74a958d9197819674388a",
+    "name": "Insurance",
+    "revision": 1,
+    "graph": {
+      "nodes": [
+        {
+          "id": "N1",
+          "type": "startEvent",
+          "name": "Start"
+        },
+        {
+          "id": "N2",
+          "type": "userTask",
+          "name": "Register claim"
+        },
+        {
+          "id": "N3",
+          "type": "serviceTask",
+          "name": "Check policy coverage"
+        },
+        {
+          "id": "N4",
+          "type": "exclusiveGateway",
+          "name": "Covered by policy?"
+        },
+        {
+          "id": "N5",
+          "type": "userTask",
+          "name": "Assess damage"
+        },
+        {
+          "id": "N6",
+          "type": "exclusiveGateway",
+          "name": "Investigation needed?"
+        },
+        {
+          "id": "N7",
+          "type": "userTask",
+          "name": "Investigate claim"
+        },
+        {
+          "id": "N8",
+          "type": "serviceTask",
+          "name": "Calculate settlement"
+        },
+        {
+          "id": "N9",
+          "type": "exclusiveGateway",
+          "name": ""
+        },
+        {
+          "id": "N10",
+          "type": "userTask",
+          "name": "Approve settlement"
+        },
+        {
+          "id": "N11",
+          "type": "userTask",
+          "name": "Explain rejection"
+        },
+        {
+          "id": "N12",
+          "type": "exclusiveGateway",
+          "name": ""
+        },
+        {
+          "id": "N13",
+          "type": "serviceTask",
+          "name": "Close claim"
+        },
+        {
+          "id": "N14",
+          "type": "endEvent",
+          "name": "End"
+        }
+      ],
+      "edges": [
+        {
+          "id": "F1",
+          "source": "N1",
+          "target": "N2",
+          "name": ""
+        },
+        {
+          "id": "F2",
+          "source": "N2",
+          "target": "N3",
+          "name": ""
+        },
+        {
+          "id": "F3",
+          "source": "N3",
+          "target": "N4",
+          "name": ""
+        },
+        {
+          "id": "F4",
+          "source": "N4",
+          "target": "N5",
+          "name": "Yes"
+        },
+        {
+          "id": "F5",
+          "source": "N5",
+          "target": "N6",
+          "name": ""
+        },
+        {
+          "id": "F6",
+          "source": "N6",
+          "target": "N7",
+          "name": "Yes"
+        },
+        {
+          "id": "F7",
+          "source": "N6",
+          "target": "N8",
+          "name": "No"
+        },
+        {
+          "id": "F8",
+          "source": "N7",
+          "target": "N9",
+          "name": ""
+        },
+        {
+          "id": "F9",
+          "source": "N8",
+          "target": "N9",
+          "name": ""
+        },
+        {
+          "id": "F10",
+          "source": "N9",
+          "target": "N10",
+          "name": ""
+        },
+        {
+          "id": "F11",
+          "source": "N4",
+          "target": "N11",
+          "name": "No"
+        },
+        {
+          "id": "F12",
+          "source": "N10",
+          "target": "N12",
+          "name": ""
+        },
+        {
+          "id": "F13",
+          "source": "N11",
+          "target": "N12",
+          "name": ""
+        },
+        {
+          "id": "F14",
+          "source": "N12",
+          "target": "N13",
+          "name": ""
+        },
+        {
+          "id": "F15",
+          "source": "N13",
+          "target": "N14",
+          "name": ""
+        }
+      ]
+    },
+    "xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:dc=\"http://www.omg.org/spec/DD/20100524/DC\" xmlns:di=\"http://www.omg.org/spec/DD/20100524/DI\" id=\"Definitions_1\" targetNamespace=\"https://process-studio.local\"><bpmn:process id=\"Process_1\" name=\"Insurance\" isExecutable=\"false\"><bpmn:startEvent id=\"N1\" name=\"Start\"><bpmn:outgoing>F1</bpmn:outgoing></bpmn:startEvent><bpmn:userTask id=\"N2\" name=\"Register claim\"><bpmn:incoming>F1</bpmn:incoming><bpmn:outgoing>F2</bpmn:outgoing></bpmn:userTask><bpmn:serviceTask id=\"N3\" name=\"Check policy coverage\"><bpmn:incoming>F2</bpmn:incoming><bpmn:outgoing>F3</bpmn:outgoing></bpmn:serviceTask><bpmn:exclusiveGateway id=\"N4\" name=\"Covered by policy?\"><bpmn:incoming>F3</bpmn:incoming><bpmn:outgoing>F4</bpmn:outgoing><bpmn:outgoing>F11</bpmn:outgoing></bpmn:exclusiveGateway><bpmn:userTask id=\"N5\" name=\"Assess damage\"><bpmn:incoming>F4</bpmn:incoming><bpmn:outgoing>F5</bpmn:outgoing></bpmn:userTask><bpmn:exclusiveGateway id=\"N6\" name=\"Investigation needed?\"><bpmn:incoming>F5</bpmn:incoming><bpmn:outgoing>F6</bpmn:outgoing><bpmn:outgoing>F7</bpmn:outgoing></bpmn:exclusiveGateway><bpmn:userTask id=\"N7\" name=\"Investigate claim\"><bpmn:incoming>F6</bpmn:incoming><bpmn:outgoing>F8</bpmn:outgoing></bpmn:userTask><bpmn:serviceTask id=\"N8\" name=\"Calculate settlement\"><bpmn:incoming>F7</bpmn:incoming><bpmn:outgoing>F9</bpmn:outgoing></bpmn:serviceTask><bpmn:exclusiveGateway id=\"N9\" name=\"\"><bpmn:incoming>F8</bpmn:incoming><bpmn:incoming>F9</bpmn:incoming><bpmn:outgoing>F10</bpmn:outgoing></bpmn:exclusiveGateway><bpmn:userTask id=\"N10\" name=\"Approve settlement\"><bpmn:incoming>F10</bpmn:incoming><bpmn:outgoing>F12</bpmn:outgoing></bpmn:userTask><bpmn:userTask id=\"N11\" name=\"Explain rejection\"><bpmn:incoming>F11</bpmn:incoming><bpmn:outgoing>F13</bpmn:outgoing></bpmn:userTask><bpmn:exclusiveGateway id=\"N12\" name=\"\"><bpmn:incoming>F12</bpmn:incoming><bpmn:incoming>F13</bpmn:incoming><bpmn:outgoing>F14</bpmn:outgoing></bpmn:exclusiveGateway><bpmn:serviceTask id=\"N13\" name=\"Close claim\"><bpmn:incoming>F14</bpmn:incoming><bpmn:outgoing>F15</bpmn:outgoing></bpmn:serviceTask><bpmn:endEvent id=\"N14\" name=\"End\"><bpmn:incoming>F15</bpmn:incoming></bpmn:endEvent><bpmn:sequenceFlow id=\"F1\" sourceRef=\"N1\" targetRef=\"N2\" name=\"\" /><bpmn:sequenceFlow id=\"F2\" sourceRef=\"N2\" targetRef=\"N3\" name=\"\" /><bpmn:sequenceFlow id=\"F3\" sourceRef=\"N3\" targetRef=\"N4\" name=\"\" /><bpmn:sequenceFlow id=\"F4\" sourceRef=\"N4\" targetRef=\"N5\" name=\"Yes\" /><bpmn:sequenceFlow id=\"F5\" sourceRef=\"N5\" targetRef=\"N6\" name=\"\" /><bpmn:sequenceFlow id=\"F6\" sourceRef=\"N6\" targetRef=\"N7\" name=\"Yes\" /><bpmn:sequenceFlow id=\"F7\" sourceRef=\"N6\" targetRef=\"N8\" name=\"No\" /><bpmn:sequenceFlow id=\"F8\" sourceRef=\"N7\" targetRef=\"N9\" name=\"\" /><bpmn:sequenceFlow id=\"F9\" sourceRef=\"N8\" targetRef=\"N9\" name=\"\" /><bpmn:sequenceFlow id=\"F10\" sourceRef=\"N9\" targetRef=\"N10\" name=\"\" /><bpmn:sequenceFlow id=\"F11\" sourceRef=\"N4\" targetRef=\"N11\" name=\"No\" /><bpmn:sequenceFlow id=\"F12\" sourceRef=\"N10\" targetRef=\"N12\" name=\"\" /><bpmn:sequenceFlow id=\"F13\" sourceRef=\"N11\" targetRef=\"N12\" name=\"\" /><bpmn:sequenceFlow id=\"F14\" sourceRef=\"N12\" targetRef=\"N13\" name=\"\" /><bpmn:sequenceFlow id=\"F15\" sourceRef=\"N13\" targetRef=\"N14\" name=\"\" /></bpmn:process><bpmndi:BPMNDiagram id=\"Diagram_1\"><bpmndi:BPMNPlane id=\"Plane_1\" bpmnElement=\"Process_1\"><bpmndi:BPMNShape id=\"N1_di\" bpmnElement=\"N1\"><dc:Bounds x=\"110\" y=\"260.0\" width=\"36\" height=\"36\" /><bpmndi:BPMNLabel><dc:Bounds x=\"63.0\" y=\"304.0\" width=\"130\" height=\"42\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"N2_di\" bpmnElement=\"N2\"><dc:Bounds x=\"320\" y=\"260.0\" width=\"140\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"N3_di\" bpmnElement=\"N3\"><dc:Bounds x=\"530\" y=\"260.0\" width=\"140\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"N4_di\" bpmnElement=\"N4\"><dc:Bounds x=\"740\" y=\"260.0\" width=\"50\" height=\"50\" /><bpmndi:BPMNLabel><dc:Bounds x=\"700.0\" y=\"318.0\" width=\"130\" height=\"42\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"N5_di\" bpmnElement=\"N5\"><dc:Bounds x=\"950\" y=\"180.0\" width=\"140\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"N11_di\" bpmnElement=\"N11\"><dc:Bounds x=\"950\" y=\"340.0\" width=\"140\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"N6_di\" bpmnElement=\"N6\"><dc:Bounds x=\"1160\" y=\"260.0\" width=\"50\" height=\"50\" /><bpmndi:BPMNLabel><dc:Bounds x=\"1120.0\" y=\"318.0\" width=\"130\" height=\"42\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"N7_di\" bpmnElement=\"N7\"><dc:Bounds x=\"1370\" y=\"180.0\" width=\"140\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"N8_di\" bpmnElement=\"N8\"><dc:Bounds x=\"1370\" y=\"340.0\" width=\"140\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"N9_di\" bpmnElement=\"N9\"><dc:Bounds x=\"1580\" y=\"260.0\" width=\"50\" height=\"50\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"N10_di\" bpmnElement=\"N10\"><dc:Bounds x=\"1790\" y=\"260.0\" width=\"140\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"N12_di\" bpmnElement=\"N12\"><dc:Bounds x=\"2000\" y=\"260.0\" width=\"50\" height=\"50\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"N13_di\" bpmnElement=\"N13\"><dc:Bounds x=\"2210\" y=\"260.0\" width=\"140\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"N14_di\" bpmnElement=\"N14\"><dc:Bounds x=\"2420\" y=\"260.0\" width=\"36\" height=\"36\" /><bpmndi:BPMNLabel><dc:Bounds x=\"2373.0\" y=\"304.0\" width=\"130\" height=\"42\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"F1_di\" bpmnElement=\"F1\"><di:waypoint x=\"146\" y=\"278.0\" /><di:waypoint x=\"233.0\" y=\"278.0\" /><di:waypoint x=\"233.0\" y=\"300.0\" /><di:waypoint x=\"320\" y=\"300.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F2_di\" bpmnElement=\"F2\"><di:waypoint x=\"460\" y=\"300.0\" /><di:waypoint x=\"530\" y=\"300.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F3_di\" bpmnElement=\"F3\"><di:waypoint x=\"670\" y=\"300.0\" /><di:waypoint x=\"705.0\" y=\"300.0\" /><di:waypoint x=\"705.0\" y=\"285.0\" /><di:waypoint x=\"740\" y=\"285.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F4_di\" bpmnElement=\"F4\"><di:waypoint x=\"790\" y=\"285.0\" /><di:waypoint x=\"870.0\" y=\"285.0\" /><di:waypoint x=\"870.0\" y=\"220.0\" /><di:waypoint x=\"950\" y=\"220.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F5_di\" bpmnElement=\"F5\"><di:waypoint x=\"1090\" y=\"220.0\" /><di:waypoint x=\"1125.0\" y=\"220.0\" /><di:waypoint x=\"1125.0\" y=\"285.0\" /><di:waypoint x=\"1160\" y=\"285.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F6_di\" bpmnElement=\"F6\"><di:waypoint x=\"1210\" y=\"285.0\" /><di:waypoint x=\"1290.0\" y=\"285.0\" /><di:waypoint x=\"1290.0\" y=\"220.0\" /><di:waypoint x=\"1370\" y=\"220.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F7_di\" bpmnElement=\"F7\"><di:waypoint x=\"1210\" y=\"285.0\" /><di:waypoint x=\"1290.0\" y=\"285.0\" /><di:waypoint x=\"1290.0\" y=\"380.0\" /><di:waypoint x=\"1370\" y=\"380.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F8_di\" bpmnElement=\"F8\"><di:waypoint x=\"1510\" y=\"220.0\" /><di:waypoint x=\"1545.0\" y=\"220.0\" /><di:waypoint x=\"1545.0\" y=\"285.0\" /><di:waypoint x=\"1580\" y=\"285.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F9_di\" bpmnElement=\"F9\"><di:waypoint x=\"1510\" y=\"380.0\" /><di:waypoint x=\"1545.0\" y=\"380.0\" /><di:waypoint x=\"1545.0\" y=\"285.0\" /><di:waypoint x=\"1580\" y=\"285.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F10_di\" bpmnElement=\"F10\"><di:waypoint x=\"1630\" y=\"285.0\" /><di:waypoint x=\"1710.0\" y=\"285.0\" /><di:waypoint x=\"1710.0\" y=\"300.0\" /><di:waypoint x=\"1790\" y=\"300.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F11_di\" bpmnElement=\"F11\"><di:waypoint x=\"790\" y=\"285.0\" /><di:waypoint x=\"870.0\" y=\"285.0\" /><di:waypoint x=\"870.0\" y=\"380.0\" /><di:waypoint x=\"950\" y=\"380.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F12_di\" bpmnElement=\"F12\"><di:waypoint x=\"1930\" y=\"300.0\" /><di:waypoint x=\"1965.0\" y=\"300.0\" /><di:waypoint x=\"1965.0\" y=\"285.0\" /><di:waypoint x=\"2000\" y=\"285.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F13_di\" bpmnElement=\"F13\"><di:waypoint x=\"1090\" y=\"380.0\" /><di:waypoint x=\"1545.0\" y=\"380.0\" /><di:waypoint x=\"1545.0\" y=\"285.0\" /><di:waypoint x=\"2000\" y=\"285.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F14_di\" bpmnElement=\"F14\"><di:waypoint x=\"2050\" y=\"285.0\" /><di:waypoint x=\"2130.0\" y=\"285.0\" /><di:waypoint x=\"2130.0\" y=\"300.0\" /><di:waypoint x=\"2210\" y=\"300.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F15_di\" bpmnElement=\"F15\"><di:waypoint x=\"2350\" y=\"300.0\" /><di:waypoint x=\"2385.0\" y=\"300.0\" /><di:waypoint x=\"2385.0\" y=\"278.0\" /><di:waypoint x=\"2420\" y=\"278.0\" /></bpmndi:BPMNEdge></bpmndi:BPMNPlane></bpmndi:BPMNDiagram></bpmn:definitions>",
+    "source": "user: Register claim\nservice: Check policy coverage\nif Covered by policy?\nuser: Assess damage\nif Investigation needed?\nuser: Investigate claim\nelse\nservice: Calculate settlement\nendif\nuser: Approve settlement\nelse\nuser: Explain rejection\nendif\nservice: Close claim",
+    "generation": {
+      "sourceHash": "5dda75b40808b89b16c3913c9f21ccdbbc49fb9d8c1546dcfa725ff941a1c59c",
+      "mode": "structured",
+      "provider": "offline-compiler",
+      "model": "",
+      "traceability": [
+        {
+          "id": "N2",
+          "name": "Register claim",
+          "type": "userTask",
+          "quote": "Register claim",
+          "start": 6,
+          "end": 20
+        },
+        {
+          "id": "N3",
+          "name": "Check policy coverage",
+          "type": "serviceTask",
+          "quote": "Check policy coverage",
+          "start": 30,
+          "end": 51
+        },
+        {
+          "id": "N5",
+          "name": "Assess damage",
+          "type": "userTask",
+          "quote": "Assess damage",
+          "start": 80,
+          "end": 93
+        },
+        {
+          "id": "N7",
+          "name": "Investigate claim",
+          "type": "userTask",
+          "quote": "Investigate claim",
+          "start": 125,
+          "end": 142
+        },
+        {
+          "id": "N8",
+          "name": "Calculate settlement",
+          "type": "serviceTask",
+          "quote": "Calculate settlement",
+          "start": 157,
+          "end": 177
+        },
+        {
+          "id": "N10",
+          "name": "Approve settlement",
+          "type": "userTask",
+          "quote": "Approve settlement",
+          "start": 190,
+          "end": 208
+        },
+        {
+          "id": "N11",
+          "name": "Explain rejection",
+          "type": "userTask",
+          "quote": "Explain rejection",
+          "start": 220,
+          "end": 237
+        },
+        {
+          "id": "N13",
+          "name": "Close claim",
+          "type": "serviceTask",
+          "quote": "Close claim",
+          "start": 253,
+          "end": 264
+        }
+      ],
+      "assumptions": []
+    },
+    "variants": [
+      {
+        "id": "716ca6bb9f574b329af0c4aaa461fbe4",
+        "family": "81c5eb0b75c74a958d9197819674388a",
+        "name": "Additional review",
+        "operations": [
+          {
+            "action": "insert",
+            "target": "N2",
+            "id": "Compliance",
+            "name": "Review compliance",
+            "type": "userTask"
+          }
+        ],
+        "context": {
+          "Segment": "Business"
+        },
+        "version": 1,
+        "deleted": 0
+      }
+    ],
+    "trash": [],
+    "history": [
+      {
+        "revision": 1,
+        "snapshot": {
+          "id": "81c5eb0b75c74a958d9197819674388a",
+          "name": "Insurance",
+          "revision": 1,
+          "graph": {
+            "nodes": [
+              {
+                "id": "N1",
+                "type": "startEvent",
+                "name": "Start"
+              },
+              {
+                "id": "N2",
+                "type": "userTask",
+                "name": "Register claim"
+              },
+              {
+                "id": "N3",
+                "type": "serviceTask",
+                "name": "Check policy coverage"
+              },
+              {
+                "id": "N4",
+                "type": "exclusiveGateway",
+                "name": "Covered by policy?"
+              },
+              {
+                "id": "N5",
+                "type": "userTask",
+                "name": "Assess damage"
+              },
+              {
+                "id": "N6",
+                "type": "exclusiveGateway",
+                "name": "Investigation needed?"
+              },
+              {
+                "id": "N7",
+                "type": "userTask",
+                "name": "Investigate claim"
+              },
+              {
+                "id": "N8",
+                "type": "serviceTask",
+                "name": "Calculate settlement"
+              },
+              {
+                "id": "N9",
+                "type": "exclusiveGateway",
+                "name": ""
+              },
+              {
+                "id": "N10",
+                "type": "userTask",
+                "name": "Approve settlement"
+              },
+              {
+                "id": "N11",
+                "type": "userTask",
+                "name": "Explain rejection"
+              },
+              {
+                "id": "N12",
+                "type": "exclusiveGateway",
+                "name": ""
+              },
+              {
+                "id": "N13",
+                "type": "serviceTask",
+                "name": "Close claim"
+              },
+              {
+                "id": "N14",
+                "type": "endEvent",
+                "name": "End"
+              }
+            ],
+            "edges": [
+              {
+                "id": "F1",
+                "source": "N1",
+                "target": "N2",
+                "name": ""
+              },
+              {
+                "id": "F2",
+                "source": "N2",
+                "target": "N3",
+                "name": ""
+              },
+              {
+                "id": "F3",
+                "source": "N3",
+                "target": "N4",
+                "name": ""
+              },
+              {
+                "id": "F4",
+                "source": "N4",
+                "target": "N5",
+                "name": "Yes"
+              },
+              {
+                "id": "F5",
+                "source": "N5",
+                "target": "N6",
+                "name": ""
+              },
+              {
+                "id": "F6",
+                "source": "N6",
+                "target": "N7",
+                "name": "Yes"
+              },
+              {
+                "id": "F7",
+                "source": "N6",
+                "target": "N8",
+                "name": "No"
+              },
+              {
+                "id": "F8",
+                "source": "N7",
+                "target": "N9",
+                "name": ""
+              },
+              {
+                "id": "F9",
+                "source": "N8",
+                "target": "N9",
+                "name": ""
+              },
+              {
+                "id": "F10",
+                "source": "N9",
+                "target": "N10",
+                "name": ""
+              },
+              {
+                "id": "F11",
+                "source": "N4",
+                "target": "N11",
+                "name": "No"
+              },
+              {
+                "id": "F12",
+                "source": "N10",
+                "target": "N12",
+                "name": ""
+              },
+              {
+                "id": "F13",
+                "source": "N11",
+                "target": "N12",
+                "name": ""
+              },
+              {
+                "id": "F14",
+                "source": "N12",
+                "target": "N13",
+                "name": ""
+              },
+              {
+                "id": "F15",
+                "source": "N13",
+                "target": "N14",
+                "name": ""
+              }
+            ]
+          },
+          "xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:dc=\"http://www.omg.org/spec/DD/20100524/DC\" xmlns:di=\"http://www.omg.org/spec/DD/20100524/DI\" id=\"Definitions_1\" targetNamespace=\"https://process-studio.local\"><bpmn:process id=\"Process_1\" name=\"Insurance\" isExecutable=\"false\"><bpmn:startEvent id=\"N1\" name=\"Start\"><bpmn:outgoing>F1</bpmn:outgoing></bpmn:startEvent><bpmn:userTask id=\"N2\" name=\"Register claim\"><bpmn:incoming>F1</bpmn:incoming><bpmn:outgoing>F2</bpmn:outgoing></bpmn:userTask><bpmn:serviceTask id=\"N3\" name=\"Check policy coverage\"><bpmn:incoming>F2</bpmn:incoming><bpmn:outgoing>F3</bpmn:outgoing></bpmn:serviceTask><bpmn:exclusiveGateway id=\"N4\" name=\"Covered by policy?\"><bpmn:incoming>F3</bpmn:incoming><bpmn:outgoing>F4</bpmn:outgoing><bpmn:outgoing>F11</bpmn:outgoing></bpmn:exclusiveGateway><bpmn:userTask id=\"N5\" name=\"Assess damage\"><bpmn:incoming>F4</bpmn:incoming><bpmn:outgoing>F5</bpmn:outgoing></bpmn:userTask><bpmn:exclusiveGateway id=\"N6\" name=\"Investigation needed?\"><bpmn:incoming>F5</bpmn:incoming><bpmn:outgoing>F6</bpmn:outgoing><bpmn:outgoing>F7</bpmn:outgoing></bpmn:exclusiveGateway><bpmn:userTask id=\"N7\" name=\"Investigate claim\"><bpmn:incoming>F6</bpmn:incoming><bpmn:outgoing>F8</bpmn:outgoing></bpmn:userTask><bpmn:serviceTask id=\"N8\" name=\"Calculate settlement\"><bpmn:incoming>F7</bpmn:incoming><bpmn:outgoing>F9</bpmn:outgoing></bpmn:serviceTask><bpmn:exclusiveGateway id=\"N9\" name=\"\"><bpmn:incoming>F8</bpmn:incoming><bpmn:incoming>F9</bpmn:incoming><bpmn:outgoing>F10</bpmn:outgoing></bpmn:exclusiveGateway><bpmn:userTask id=\"N10\" name=\"Approve settlement\"><bpmn:incoming>F10</bpmn:incoming><bpmn:outgoing>F12</bpmn:outgoing></bpmn:userTask><bpmn:userTask id=\"N11\" name=\"Explain rejection\"><bpmn:incoming>F11</bpmn:incoming><bpmn:outgoing>F13</bpmn:outgoing></bpmn:userTask><bpmn:exclusiveGateway id=\"N12\" name=\"\"><bpmn:incoming>F12</bpmn:incoming><bpmn:incoming>F13</bpmn:incoming><bpmn:outgoing>F14</bpmn:outgoing></bpmn:exclusiveGateway><bpmn:serviceTask id=\"N13\" name=\"Close claim\"><bpmn:incoming>F14</bpmn:incoming><bpmn:outgoing>F15</bpmn:outgoing></bpmn:serviceTask><bpmn:endEvent id=\"N14\" name=\"End\"><bpmn:incoming>F15</bpmn:incoming></bpmn:endEvent><bpmn:sequenceFlow id=\"F1\" sourceRef=\"N1\" targetRef=\"N2\" name=\"\" /><bpmn:sequenceFlow id=\"F2\" sourceRef=\"N2\" targetRef=\"N3\" name=\"\" /><bpmn:sequenceFlow id=\"F3\" sourceRef=\"N3\" targetRef=\"N4\" name=\"\" /><bpmn:sequenceFlow id=\"F4\" sourceRef=\"N4\" targetRef=\"N5\" name=\"Yes\" /><bpmn:sequenceFlow id=\"F5\" sourceRef=\"N5\" targetRef=\"N6\" name=\"\" /><bpmn:sequenceFlow id=\"F6\" sourceRef=\"N6\" targetRef=\"N7\" name=\"Yes\" /><bpmn:sequenceFlow id=\"F7\" sourceRef=\"N6\" targetRef=\"N8\" name=\"No\" /><bpmn:sequenceFlow id=\"F8\" sourceRef=\"N7\" targetRef=\"N9\" name=\"\" /><bpmn:sequenceFlow id=\"F9\" sourceRef=\"N8\" targetRef=\"N9\" name=\"\" /><bpmn:sequenceFlow id=\"F10\" sourceRef=\"N9\" targetRef=\"N10\" name=\"\" /><bpmn:sequenceFlow id=\"F11\" sourceRef=\"N4\" targetRef=\"N11\" name=\"No\" /><bpmn:sequenceFlow id=\"F12\" sourceRef=\"N10\" targetRef=\"N12\" name=\"\" /><bpmn:sequenceFlow id=\"F13\" sourceRef=\"N11\" targetRef=\"N12\" name=\"\" /><bpmn:sequenceFlow id=\"F14\" sourceRef=\"N12\" targetRef=\"N13\" name=\"\" /><bpmn:sequenceFlow id=\"F15\" sourceRef=\"N13\" targetRef=\"N14\" name=\"\" /></bpmn:process><bpmndi:BPMNDiagram id=\"Diagram_1\"><bpmndi:BPMNPlane id=\"Plane_1\" bpmnElement=\"Process_1\"><bpmndi:BPMNShape id=\"N1_di\" bpmnElement=\"N1\"><dc:Bounds x=\"110\" y=\"260.0\" width=\"36\" height=\"36\" /><bpmndi:BPMNLabel><dc:Bounds x=\"63.0\" y=\"304.0\" width=\"130\" height=\"42\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"N2_di\" bpmnElement=\"N2\"><dc:Bounds x=\"320\" y=\"260.0\" width=\"140\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"N3_di\" bpmnElement=\"N3\"><dc:Bounds x=\"530\" y=\"260.0\" width=\"140\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"N4_di\" bpmnElement=\"N4\"><dc:Bounds x=\"740\" y=\"260.0\" width=\"50\" height=\"50\" /><bpmndi:BPMNLabel><dc:Bounds x=\"700.0\" y=\"318.0\" width=\"130\" height=\"42\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"N5_di\" bpmnElement=\"N5\"><dc:Bounds x=\"950\" y=\"180.0\" width=\"140\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"N11_di\" bpmnElement=\"N11\"><dc:Bounds x=\"950\" y=\"340.0\" width=\"140\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"N6_di\" bpmnElement=\"N6\"><dc:Bounds x=\"1160\" y=\"260.0\" width=\"50\" height=\"50\" /><bpmndi:BPMNLabel><dc:Bounds x=\"1120.0\" y=\"318.0\" width=\"130\" height=\"42\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"N7_di\" bpmnElement=\"N7\"><dc:Bounds x=\"1370\" y=\"180.0\" width=\"140\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"N8_di\" bpmnElement=\"N8\"><dc:Bounds x=\"1370\" y=\"340.0\" width=\"140\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"N9_di\" bpmnElement=\"N9\"><dc:Bounds x=\"1580\" y=\"260.0\" width=\"50\" height=\"50\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"N10_di\" bpmnElement=\"N10\"><dc:Bounds x=\"1790\" y=\"260.0\" width=\"140\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"N12_di\" bpmnElement=\"N12\"><dc:Bounds x=\"2000\" y=\"260.0\" width=\"50\" height=\"50\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"N13_di\" bpmnElement=\"N13\"><dc:Bounds x=\"2210\" y=\"260.0\" width=\"140\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"N14_di\" bpmnElement=\"N14\"><dc:Bounds x=\"2420\" y=\"260.0\" width=\"36\" height=\"36\" /><bpmndi:BPMNLabel><dc:Bounds x=\"2373.0\" y=\"304.0\" width=\"130\" height=\"42\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"F1_di\" bpmnElement=\"F1\"><di:waypoint x=\"146\" y=\"278.0\" /><di:waypoint x=\"233.0\" y=\"278.0\" /><di:waypoint x=\"233.0\" y=\"300.0\" /><di:waypoint x=\"320\" y=\"300.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F2_di\" bpmnElement=\"F2\"><di:waypoint x=\"460\" y=\"300.0\" /><di:waypoint x=\"530\" y=\"300.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F3_di\" bpmnElement=\"F3\"><di:waypoint x=\"670\" y=\"300.0\" /><di:waypoint x=\"705.0\" y=\"300.0\" /><di:waypoint x=\"705.0\" y=\"285.0\" /><di:waypoint x=\"740\" y=\"285.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F4_di\" bpmnElement=\"F4\"><di:waypoint x=\"790\" y=\"285.0\" /><di:waypoint x=\"870.0\" y=\"285.0\" /><di:waypoint x=\"870.0\" y=\"220.0\" /><di:waypoint x=\"950\" y=\"220.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F5_di\" bpmnElement=\"F5\"><di:waypoint x=\"1090\" y=\"220.0\" /><di:waypoint x=\"1125.0\" y=\"220.0\" /><di:waypoint x=\"1125.0\" y=\"285.0\" /><di:waypoint x=\"1160\" y=\"285.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F6_di\" bpmnElement=\"F6\"><di:waypoint x=\"1210\" y=\"285.0\" /><di:waypoint x=\"1290.0\" y=\"285.0\" /><di:waypoint x=\"1290.0\" y=\"220.0\" /><di:waypoint x=\"1370\" y=\"220.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F7_di\" bpmnElement=\"F7\"><di:waypoint x=\"1210\" y=\"285.0\" /><di:waypoint x=\"1290.0\" y=\"285.0\" /><di:waypoint x=\"1290.0\" y=\"380.0\" /><di:waypoint x=\"1370\" y=\"380.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F8_di\" bpmnElement=\"F8\"><di:waypoint x=\"1510\" y=\"220.0\" /><di:waypoint x=\"1545.0\" y=\"220.0\" /><di:waypoint x=\"1545.0\" y=\"285.0\" /><di:waypoint x=\"1580\" y=\"285.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F9_di\" bpmnElement=\"F9\"><di:waypoint x=\"1510\" y=\"380.0\" /><di:waypoint x=\"1545.0\" y=\"380.0\" /><di:waypoint x=\"1545.0\" y=\"285.0\" /><di:waypoint x=\"1580\" y=\"285.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F10_di\" bpmnElement=\"F10\"><di:waypoint x=\"1630\" y=\"285.0\" /><di:waypoint x=\"1710.0\" y=\"285.0\" /><di:waypoint x=\"1710.0\" y=\"300.0\" /><di:waypoint x=\"1790\" y=\"300.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F11_di\" bpmnElement=\"F11\"><di:waypoint x=\"790\" y=\"285.0\" /><di:waypoint x=\"870.0\" y=\"285.0\" /><di:waypoint x=\"870.0\" y=\"380.0\" /><di:waypoint x=\"950\" y=\"380.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F12_di\" bpmnElement=\"F12\"><di:waypoint x=\"1930\" y=\"300.0\" /><di:waypoint x=\"1965.0\" y=\"300.0\" /><di:waypoint x=\"1965.0\" y=\"285.0\" /><di:waypoint x=\"2000\" y=\"285.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F13_di\" bpmnElement=\"F13\"><di:waypoint x=\"1090\" y=\"380.0\" /><di:waypoint x=\"1545.0\" y=\"380.0\" /><di:waypoint x=\"1545.0\" y=\"285.0\" /><di:waypoint x=\"2000\" y=\"285.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F14_di\" bpmnElement=\"F14\"><di:waypoint x=\"2050\" y=\"285.0\" /><di:waypoint x=\"2130.0\" y=\"285.0\" /><di:waypoint x=\"2130.0\" y=\"300.0\" /><di:waypoint x=\"2210\" y=\"300.0\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"F15_di\" bpmnElement=\"F15\"><di:waypoint x=\"2350\" y=\"300.0\" /><di:waypoint x=\"2385.0\" y=\"300.0\" /><di:waypoint x=\"2385.0\" y=\"278.0\" /><di:waypoint x=\"2420\" y=\"278.0\" /></bpmndi:BPMNEdge></bpmndi:BPMNPlane></bpmndi:BPMNDiagram></bpmn:definitions>",
+          "source": "user: Register claim\nservice: Check policy coverage\nif Covered by policy?\nuser: Assess damage\nif Investigation needed?\nuser: Investigate claim\nelse\nservice: Calculate settlement\nendif\nuser: Approve settlement\nelse\nuser: Explain rejection\nendif\nservice: Close claim",
+          "generation": "{\"sourceHash\": \"5dda75b40808b89b16c3913c9f21ccdbbc49fb9d8c1546dcfa725ff941a1c59c\", \"mode\": \"structured\", \"provider\": \"offline-compiler\", \"model\": \"\", \"traceability\": [{\"id\": \"N2\", \"name\": \"Register claim\", \"type\": \"userTask\", \"quote\": \"Register claim\", \"start\": 6, \"end\": 20}, {\"id\": \"N3\", \"name\": \"Check policy coverage\", \"type\": \"serviceTask\", \"quote\": \"Check policy coverage\", \"start\": 30, \"end\": 51}, {\"id\": \"N5\", \"name\": \"Assess damage\", \"type\": \"userTask\", \"quote\": \"Assess damage\", \"start\": 80, \"end\": 93}, {\"id\": \"N7\", \"name\": \"Investigate claim\", \"type\": \"userTask\", \"quote\": \"Investigate claim\", \"start\": 125, \"end\": 142}, {\"id\": \"N8\", \"name\": \"Calculate settlement\", \"type\": \"serviceTask\", \"quote\": \"Calculate settlement\", \"start\": 157, \"end\": 177}, {\"id\": \"N10\", \"name\": \"Approve settlement\", \"type\": \"userTask\", \"quote\": \"Approve settlement\", \"start\": 190, \"end\": 208}, {\"id\": \"N11\", \"name\": \"Explain rejection\", \"type\": \"userTask\", \"quote\": \"Explain rejection\", \"start\": 220, \"end\": 237}, {\"id\": \"N13\", \"name\": \"Close claim\", \"type\": \"serviceTask\", \"quote\": \"Close claim\", \"start\": 253, \"end\": 264}], \"assumptions\": []}"
+        },
+        "created": "2026-11-04 15:23:07"
+      }
+    ],
+    "audit": [
+      {
+        "action": "family.created",
+        "detail": "{\"name\": \"Insurance\", \"generation\": {\"sourceHash\": \"5dda75b40808b89b16c3913c9f21ccdbbc49fb9d8c1546dcfa725ff941a1c59c\", \"mode\": \"structured\", \"provider\": \"offline-compiler\", \"model\": \"\", \"traceability\": [{\"id\": \"N2\", \"name\": \"Register claim\", \"type\": \"userTask\", \"quote\": \"Register claim\", \"start\": 6, \"end\": 20}, {\"id\": \"N3\", \"name\": \"Check policy coverage\", \"type\": \"serviceTask\", \"quote\": \"Check policy coverage\", \"start\": 30, \"end\": 51}, {\"id\": \"N5\", \"name\": \"Assess damage\", \"type\": \"userTask\", \"quote\": \"Assess damage\", \"start\": 80, \"end\": 93}, {\"id\": \"N7\", \"name\": \"Investigate claim\", \"type\": \"userTask\", \"quote\": \"Investigate claim\", \"start\": 125, \"end\": 142}, {\"id\": \"N8\", \"name\": \"Calculate settlement\", \"type\": \"serviceTask\", \"quote\": \"Calculate settlement\", \"start\": 157, \"end\": 177}, {\"id\": \"N10\", \"name\": \"Approve settlement\", \"type\": \"userTask\", \"quote\": \"Approve settlement\", \"start\": 190, \"end\": 208}, {\"id\": \"N11\", \"name\": \"Explain rejection\", \"type\": \"userTask\", \"quote\": \"Explain rejection\", \"start\": 220, \"end\": 237}, {\"id\": \"N13\", \"name\": \"Close claim\", \"type\": \"serviceTask\", \"quote\": \"Close claim\", \"start\": 253, \"end\": 264}], \"assumptions\": []}}",
+        "created": "2026-11-04 15:23:07"
+      },
+      {
+        "action": "variant.created",
+        "detail": "{\"id\": \"716ca6bb9f574b329af0c4aaa461fbe4\", \"name\": \"Additional review\"}",
+        "created": "2026-11-04 15:23:07"
+      }
+    ]
+  }
+}

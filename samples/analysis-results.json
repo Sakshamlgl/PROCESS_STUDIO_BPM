@@ -1,0 +1,47 @@
+{
+  "onboarding": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      "Analysis supports acyclic single-process models; this is not full BPMN conformance certification."
+    ],
+    "reason": null,
+    "counterexample": [],
+    "sound": true,
+    "complete": true,
+    "states": 15,
+    "deadlocks": 0,
+    "terminalStates": 1,
+    "unfired": []
+  },
+  "procurement": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      "Analysis supports acyclic single-process models; this is not full BPMN conformance certification."
+    ],
+    "reason": null,
+    "counterexample": [],
+    "sound": true,
+    "complete": true,
+    "states": 13,
+    "deadlocks": 0,
+    "terminalStates": 1,
+    "unfired": []
+  },
+  "insurance": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      "Analysis supports acyclic single-process models; this is not full BPMN conformance certification."
+    ],
+    "reason": null,
+    "counterexample": [],
+    "sound": true,
+    "complete": true,
+    "states": 16,
+    "deadlocks": 0,
+    "terminalStates": 1,
+    "unfired": []
+  }
+}

@@ -1,0 +1,11 @@
+user[Requester]: Submit requisition
+user[Finance]: Approve budget
+parallel
+user[Procurement]: Evaluate supplier
+branch
+service[Operations]: Check stock availability
+endparallel
+user[Procurement]: Issue purchase order
+user[Operations]: Confirm receipt
+user[Finance]: Reconcile invoice
+service[Finance]: Schedule payment

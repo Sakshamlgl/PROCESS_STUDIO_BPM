@@ -1,0 +1,13 @@
+user: Receive application
+service: Verify identity
+if Application approved?
+parallel
+user: Prepare contract
+branch
+service: Open account
+endparallel
+user: Welcome customer
+else
+user: Explain rejection
+endif
+service: Archive application

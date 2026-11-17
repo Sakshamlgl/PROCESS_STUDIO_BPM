@@ -1,0 +1,14 @@
+user: Register claim
+service: Check policy coverage
+if Covered by policy?
+user: Assess damage
+if Investigation needed?
+user: Investigate claim
+else
+service: Calculate settlement
+endif
+user: Approve settlement
+else
+user: Explain rejection
+endif
+service: Close claim
